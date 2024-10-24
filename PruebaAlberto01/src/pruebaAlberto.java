@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class pruebaAlberto {
+public class pruebaAlbertov2 {
     public static void main(String[] args) {
 
         Random rdm = new Random();
@@ -11,13 +11,13 @@ public class pruebaAlberto {
         int columnas = 10;
 
         int[][] tableroNumeros = new int[filas][columnas];
-        char[][] tableroX = new char[filas][columnas];
+        String[][] tableroX = new String[filas][columnas];
 
         // Inicializar los tableros
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
                 tableroNumeros[i][j] = rdm.nextInt(89) + 10;
-                tableroX[i][j] = ' ';
+                tableroX[i][j] = " ";
             }
         }
 
@@ -52,11 +52,12 @@ public class pruebaAlberto {
             System.out.println(); // Hacemos un salto de línea al final de cada fila
         }
     }
-    private static void mostrarTableroConResultados(int[][] tableroNumeros, char[][] tableroX) {
+
+    private static void mostrarTableroConResultados(int[][] tableroNumeros, String[][] tableroX) {
         for (int i = 0; i < tableroNumeros.length; i++) {
             for (int j = 0; j < tableroNumeros[i].length; j++) {
-                if (tableroX[i][j] == 'X') {
-                    System.out.print("X  "); // Mostrar la X para respuestas correctas
+                if (tableroX[i][j] == "XX") {
+                    System.out.print("XX "); // Mostrar la X para respuestas correctas
                 } else {
                     System.out.print(tableroNumeros[i][j] + " "); // Mostrar el número original
                 }
@@ -65,16 +66,14 @@ public class pruebaAlberto {
         }
     }
 
-    private static void marcarX(int[][] tableroNumeros, char[][] tableroX, int numero) {
+    private static void marcarX(int[][] tableroNumeros, String[][] tableroX, int numero) {
         for (int i = 0; i < tableroNumeros.length; i++) {
             for (int j = 0; j < tableroNumeros[i].length; j++) {
-                if (tableroNumeros[i][j] == numero) {
-                    tableroX[i][j] = 'X'; // Marcar X si el número coincide
+                if (tableroNumeros[i][j] == numero) { // Comprobar si el número coincide con el del tablero de numeros
+                    tableroX[i][j] = String.valueOf("XX"); // Marcar XX si el número coincide
                 }
             }
         }
     }
 }
-
-
 
